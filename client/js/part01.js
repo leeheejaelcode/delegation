@@ -31,6 +31,7 @@ const data = [
 
 const navigation = getNode(".navigation");
 const visualImage = getNode(".visual img");
+const split = new SplitText("h3", { type: "chars" });
 
 function handleClick(e) {
   e.preventDefault();
@@ -50,5 +51,15 @@ function handleClick(e) {
 
   visualImage.src = `./assets/part01/${data[index - 1].src}`;
   visualImage.alt = data[index - 1].alt;
+
+  gsap.from(split.chars, {
+    opacity: 0,
+    y: 30,
+    stagger: 0.03,
+    ease: "power3.inout",
+    immediateRender: false,
+  });
 }
 navigation.addEventListener("click", handleClick);
+
+// gsap split text 애니메이션
