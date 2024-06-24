@@ -1,3 +1,5 @@
+// const { default: Swiper } = require("swiper");
+
 const data = [
   {
     id: 1,
@@ -21,11 +23,23 @@ const data = [
   },
 ];
 
-
-
-
-
-
-
-
-
+new Swiper(".swiper", {
+  autoplay: {
+    delay: 3000,
+  },
+  loop: true,
+  speed: 2000,
+  parallax: true,
+  pagination: {
+    el: ".pagination",
+    clickable: true,
+    bulletClass: "bullet",
+    bulletActiveClass: "is-active",
+    renderBullet: function (index, className) {
+      return /*html */ `
+      <span class="${className}">
+      <img src="./assets/part01/${data[index].src}" alt= "${data[index.alt]}"/>
+      </span>`;
+    },
+  },
+});
