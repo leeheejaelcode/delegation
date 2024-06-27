@@ -52,6 +52,8 @@ function handleClick(e) {
   visualImage.src = `./assets/part01/${data[index - 1].src}`;
   visualImage.alt = data[index - 1].alt;
 
+  // gsap split text 애니메이션
+
   gsap.from(split.chars, {
     opacity: 0,
     y: 30,
@@ -61,5 +63,3 @@ function handleClick(e) {
   });
 }
 navigation.addEventListener("click", handleClick);
-
-// gsap split text 애니메이션
